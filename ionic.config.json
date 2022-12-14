@@ -1,0 +1,7 @@
+{
+  "name": "rent-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
