@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { PlaceDetailPageRoutingModule } from './place-detail-routing.module';
 
 import { PlaceDetailPage } from './place-detail.page';
+import { CreateBookingsComponent } from 'src/app/bookings/create-bookings/create-bookings.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PlaceDetailPageRoutingModule
+    PlaceDetailPageRoutingModule,
   ],
-  declarations: [PlaceDetailPage]
+  declarations: [PlaceDetailPage, CreateBookingsComponent],
+  entryComponents: [CreateBookingsComponent],
 })
 export class PlaceDetailPageModule {}
