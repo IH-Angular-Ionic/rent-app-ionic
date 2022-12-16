@@ -9,12 +9,12 @@
     <div class="offer_Details">
       <ion-icon name="calendar" color="warning"></ion-icon>
       <ion-text color="primary" class="space_left"
-        >{{ getDate() | date }}
+        >{{ offer.availableFrom | date }}
       </ion-text>
       <span> - </span>
       <ion-icon name="calendar" color="warning" class="space_left"></ion-icon>
       <ion-text color="primary" class="space_left">{{
-        getDate() | date
+        offer.availableTo | date
       }}</ion-text>
     </div>
   </ion-label>

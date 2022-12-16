@@ -13,6 +13,7 @@ import { AuthService } from './auth.service';
 export class AuthPage implements OnInit {
   isLoading = false;
   isLogin = true;
+
   constructor(
     private authService: AuthService,
     private router: Router,
