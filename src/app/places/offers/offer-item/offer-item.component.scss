@@ -1,0 +1,14 @@
+h2 {
+  font-size: 18px;
+  border: 1px solid rgb(217, 119, 119);
+  padding: 8px;
+  border-radius: 5px;
+}
+.offer_Details {
+  display: flex;
+  align-items: center;
+
+  .space_left {
+    margin-left: 5px;
+  }
+}
