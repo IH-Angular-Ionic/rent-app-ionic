@@ -144,29 +144,6 @@ export class PlacesService {
       })
     );
   }
-
-  updatePlace(placeId: string, title: string, description: string) {
-    return this.places.pipe(
-      take(1),
-      delay(1500),
-      tap((places) => {
-        const updatePlaceIndex = places.findIndex((p) => p.id === placeId);
-        const updatePlaces = [...places];
-        const oldPlace = updatePlaces[updatePlaceIndex];
-        updatePlaces[updatePlaceIndex] = new Place(
-          oldPlace.id,
-          title,
-          description,
-          oldPlace.imgUrl,
-          oldPlace.price,
-          oldPlace.availableFrom,
-          oldPlace.availableTo,
-          oldPlace.userId
-        );
-        this._places.next(updatePlaces);
-      })
-    );
-  }
 }
 
 // new Place(
