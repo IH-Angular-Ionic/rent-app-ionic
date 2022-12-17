@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NavController, LoadingController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { Place } from '../../place.model';
 import { PlacesService } from '../../places.service';
@@ -18,7 +18,9 @@ export class EditOfferPage implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private navCtrl: NavController,
-    private placesService: PlacesService
+    private placesService: PlacesService,
+    private router: Router,
+    private loadingCtrl: LoadingController
   ) {}
 
   ngOnInit() {
@@ -28,7 +30,8 @@ export class EditOfferPage implements OnInit, OnDestroy {
         return;
       }
 
-      // this.place = this.placesService.getPlace(param.get('placeId'));
+      // const place = this.placesService.getPlace(param.get('placeId'));
+
       this.placesSub = this.placesService
         .getPlace(param.get('placeId'))
         .subscribe((place) => {
@@ -43,15 +46,38 @@ export class EditOfferPage implements OnInit, OnDestroy {
               validators: [Validators.required, Validators.maxLength(150)],
             }),
           });
+          // console.log(this.form.value);
         });
     });
   }
 
   onUpdateOffer() {
+    console.log('hola');
     if (!this.form.valid) {
       return;
     }
-    console.log(this.form);
+    this.loadingCtrl
+      .create({
+        spinner: 'bubbles',
+        message: 'Updating title and description place...',
+      })
+      .then((loadingEl) => {
+        // console.log(this.form.value);
+        loadingEl.present();
+        this.placesService
+          .updatePlace(
+            this.place.id,
+            this.form.value.title,
+            this.form.value.description
+          )
+          .subscribe(() => {
+            console.log(this.form.value);
+            // no esta actualizando los datos del metodo updatePlace
+            loadingEl.dismiss();
+            this.form.reset();
+            this.router.navigate(['/places/tabs/offers']);
+          });
+      });
   }
 
   ngOnDestroy() {
