@@ -48,6 +48,16 @@ export class PlacesService {
       new Date('2023-12-31'),
       'abc'
     ),
+    new Place(
+      '5',
+      'House Camp',
+      'House Camp is a place where you can place your customers and services  in different  locations',
+      'https://img.freepik.com/free-vector/detached-house-abstract-concept-illustration-single-family-house-stand-alone-household-single-detached-building-individual-land-ownership-unattached-dwelling-unit_335657-1142.jpg?w=1060&t=st=1671297787~exp=1671298387~hmac=0386c2c19527ed1c6f4979712ad54c6030acffda2858cf3e3c51e0b10c6ec616',
+      25,
+      new Date('2022-12-01'),
+      new Date('2023-12-31'),
+      'abc'
+    ),
   ]);
 
   get places() {
