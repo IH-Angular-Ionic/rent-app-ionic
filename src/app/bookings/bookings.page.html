@@ -13,12 +13,24 @@
       <ion-col
         size-md="6"
         offset-md="3"
-        *ngIf="!loadedBookings || loadedBookings.length <= 0 "
+        class="ion-text-center"
+        *ngIf="isLoading"
+      >
+        <ion-spinner color="primary"></ion-spinner>
+      </ion-col>
+      <ion-col
+        size-md="6"
+        offset-md="3"
+        *ngIf="!isLoading && (!loadedBookings || loadedBookings.length <= 0)"
         class="ion-text-center"
       >
         <p>No Bookings Found!</p>
       </ion-col>
-      <ion-col size-md="6" offset-md="3" *ngIf="loadedBookings.length > 0 ">
+      <ion-col
+        size-md="6"
+        offset-md="3"
+        *ngIf="!isLoading && (loadedBookings.length > 0)"
+      >
         <ion-list>
           <!-- Replace for the scrolll -->
           <ion-item-sliding

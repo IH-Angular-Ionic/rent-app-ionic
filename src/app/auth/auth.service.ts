@@ -8,10 +8,10 @@ export class AuthService {
   // private _userId = 'qwe';
   private _userId = 'abc';
 
-  public get userIsAuthenticated() {
+  get userIsAuthenticated() {
     return this._userIsAuthenticated;
   }
-  public get userId() {
+  get userId() {
     return this._userId;
   }
 

@@ -125,6 +125,8 @@ export class PlaceDetailPage implements OnInit, OnDestroy {
       .then((resultData) => {
         // console.log(resultData.data.bookingData.firstName, resultData.role);
         const data = resultData.data.bookingData;
+        console.log('--------------------------------');
+        console.log(data.firstName);
         if (resultData.role === 'confirm') {
           console.log('BOOKED');
           this.loadingCtrl

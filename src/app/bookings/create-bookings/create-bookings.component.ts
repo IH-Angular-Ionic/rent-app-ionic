@@ -60,6 +60,7 @@ export class CreateBookingsComponent implements OnInit {
       },
       'confirm'
     );
+    console.log(this.form.value['guest-number']);
   }
 
   datesValid() {
